@@ -421,7 +421,7 @@ window.onload = function () {
 
     // 스크롤바 표시
     let cook_wrap = $('.cook-wrap');
-   
+
     // 데이터를 불러들여서 파싱(분해) 한다.
     fetch(cook_json)
     .then(res => res.json())
@@ -475,6 +475,7 @@ window.onload = function () {
     // 총 값이 나오는 자리 html 요소
     let cook_price_total = $('#cook-price-total');
     // 장바구니 카운팅
+    let bucket = $('.bucket');
     let bucket_i = $('.bucket i');
     // 장바구니 담기 버튼
     let cook_link = $('.cook-link');
@@ -500,10 +501,10 @@ window.onload = function () {
     cook_link.click(function(event){
         event.preventDefault();
         bucket_i.text(count);
-        bucket_i.removeClass('updown-ani');
+        bucket.removeClass('ring-ani');
         setTimeout(function() {
-            bucket_i.addClass('updown-ani');
-         }, 500);
+            bucket.addClass('ring-ani');
+        }, 500);
         // bucket_i.addClass('updown-ani');
     });
 
