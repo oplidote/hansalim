@@ -2,6 +2,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+@keyframes bucket-ani {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+
+    20% {
+        transform: scale(1.2) rotate(0deg);
+    }
+
+    30% {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    40% {
+        transform: scale(1.2) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-10deg);
+    }
+
+    60% {
+        transform: scale(1.2) rotate(0deg);
+    }
+
+    70% {
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(0deg);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -263,7 +301,7 @@ body {
 /* 고정메뉴 */
 .fixmenu {
     position: fixed;
-    left: calc(50% + 650px);
+    right: 30px;
     top: 175px;
 
     display: block;
@@ -513,15 +551,70 @@ body {
     padding-top: 18px;
 }
 
+.visual-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: scroll;
+}
+
+.visual-modal-box {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+    display: block;
+    width: 1300px;
+    height: 1200px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.visual-modal-box li {
+    position: relative;
+    display: block;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+
+.visual-modal-box a {
+    position: relative;
+    display: block;
+    width: 1050px;
+    height: 225px;
+}
+
+.visual-modal-box a img {
+    position: absolute;
+    left: 30%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+.visual-modal-close {
+    position: absolute;
+    left: calc(50% + 650px);
+    top: 50px;
+    display: block;
+    cursor: pointer;
+}
+
 /* 전체메뉴 */
 .all-menu {
     position: absolute;
     left: 0;
     top: 62px;
-    display: block; 
+    display: block;
     visibility: hidden;
 
-    width: 210px;    
+    width: 210px;
     height: 0;
 
     background-color: #fff;
@@ -551,6 +644,7 @@ body {
     display: none;
     padding: 10px 0;
 }
+
 .all-menu-detail-list li {
     position: relative;
     display: block;
@@ -566,19 +660,19 @@ body {
     color: #000;
 }
 
-.all-menu-detail-list li a:hover{
-    font-weight:500;
-    color:#76bd42; 
+.all-menu-detail-list li a:hover {
+    font-weight: 500;
+    color: #76bd42;
 }
 
-.all-menu-detail-list li a:hover::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:2px;
-    width:100%;
-    height:1px;
-    background:#76bd42;
+.all-menu-detail-list li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 1px;
+    background: #76bd42;
 }
 
 
@@ -697,6 +791,7 @@ body {
     position: relative;
     display: inline-block;
 }
+
 .all-list-theme .ball::before {
     top: 10px;
 }
@@ -849,8 +944,9 @@ body {
 
 .arrow-list li a:hover {
     font-weight: 500;
-    color: #000;    
+    color: #000;
 }
+
 .arrow-list li a:hover::after {
     content: '';
     position: absolute;
@@ -984,6 +1080,10 @@ body {
     margin-top: 8px;
 }
 
+.ring-ani {
+    animation: bucket-ani .5s cubic-bezier(0, 0, 1, 1);
+}
+
 .bucket i {
     position: absolute;
     right: -7px;
@@ -993,7 +1093,6 @@ body {
     height: 18px;
     background-color: #76bd42;
     border-radius: 50%;
-
     text-align: center;
     line-height: 18px;
     font-size: 11px;
@@ -1566,7 +1665,6 @@ body {
 .sw-popular {}
 
 
-
 .popular-bt {
     position: relative;
     display: block;
@@ -1730,6 +1828,10 @@ body {
 .popular-bottom {
     position: relative;
     display: block;
+}
+
+.good-tag-red {
+    background-color: #e14949;
 }
 
 /* 브랜드관 */
@@ -2082,7 +2184,10 @@ body {
     background-position: 0px -36px;
     border: 0;
     cursor: pointer;
+}
 
+.cook-bt-false {
+    background-position-y: 0px !important;
 }
 
 .cook-list {
@@ -2832,11 +2937,12 @@ body {
 .sitemap {
     position: absolute;
     left: 0;
-    bottom: -100px;
+    bottom: 100%;
     display: none;
     width: 100%;
-
     background-color: #f4f4f4;
+}
+.sitemap.active {
 }
 
 .sitemap .container {
